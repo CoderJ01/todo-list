@@ -1,0 +1,70 @@
+.todo-list h2 {
+    text-transform: uppercase;
+}
+
+.task {
+    background-color: rgb(23, 32, 42);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 7px;
+}
+
+.check {
+    color: rgba(48, 194, 165, 1);
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.remove {
+    color: red;
+    margin-right: 20px;
+    margin-top: 11px;
+}
+
+.todo-list h2, .todo-list text {
+    color: white;
+}
+
+/* desktop only */
+@media screen and (min-width: 981px) {
+   .homepage {
+        margin-left: 20%;
+        margin-top: 8vh;
+        min-height: 75vh;
+        width: 60%;
+    }
+
+    .task {
+        margin-left: 2%;
+        margin-top: 2vh;
+        width: 96%;
+    }
+
+    .remove {
+        font-size: 20px;
+    }
+}
+
+/* mobile only */
+@media screen and (max-width: 980px) {
+    .homepage {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+    }
+
+    .todo-list h2 {
+        text-align: center;
+    }
+
+    .task {
+        margin-left: 7%;
+        margin-top: 3vh;
+        width: 86%;
+    }
+
+    .remove {
+        font-size: 18px;
+    }
+}
