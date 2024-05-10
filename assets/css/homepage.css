@@ -26,6 +26,26 @@
     color: white;
 }
 
+.activate-popup {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.activate-popup button {
+    background: rgb(48,194,165);
+    background: linear-gradient(90deg, rgba(48, 194, 165, 1) 0%, rgba(108, 162, 222, 1) 50%, rgba(48, 194, 165, 1) 100%);
+    border: none;
+    border-radius: 20px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+}
+
+.activate-popup button:active {
+    opacity: 0.5;
+}
+
 /* desktop only */
 @media screen and (min-width: 981px) {
    .homepage {
