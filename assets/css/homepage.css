@@ -42,7 +42,8 @@
     width: 40px;
 }
 
-.activate-popup button:active {
+.activate-popup button:active,
+.modal-content button:active {
     opacity: 0.5;
 }
 
@@ -65,6 +66,7 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: white;
+    border-radius: 30px;
     margin: 15% auto; 
     padding: 20px; 
 }
@@ -84,6 +86,23 @@
     text-decoration: none;
 }
 
+.modal-content form input {
+    border: 2px solid rgba(48, 194, 165, 1);
+    border-radius: 10px;
+    width: 95%;
+}
+
+.modal-content button {
+    background: rgb(48,194,165);
+    background: linear-gradient(90deg, rgba(48, 194, 165, 1) 0%, rgba(108, 162, 222, 1) 50%, rgba(48, 194, 165, 1) 100%);
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-left: 30%;
+    margin-top: 2vh;
+    padding: 10px;
+    width: 40%;
+} 
 
 /* Modal END */
 
