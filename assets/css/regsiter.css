@@ -1,6 +1,6 @@
 .register {
-    background: rgb(48,194,165);
-    background: linear-gradient(90deg, rgba(48, 194, 165, 1) 0%, rgba(108, 162, 222, 1) 50%, rgba(48, 194, 165, 1) 100%);
+    background: rgb(108, 162, 222);
+    background: linear-gradient(90deg, rgba(108, 162, 222, 1) 0%, rgba(48, 194, 165, 1) 50%, rgba(108, 162, 222, 1) 100%);
     border-radius: 20px;
     font-weight: bold;
     padding-bottom: 10px;
