@@ -1,0 +1,60 @@
+.register {
+    background: rgb(48,194,165);
+    background: linear-gradient(90deg, rgba(48, 194, 165, 1) 0%, rgba(108, 162, 222, 1) 50%, rgba(48, 194, 165, 1) 100%);
+    border-radius: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.register h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.register input {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.register button {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    margin-left: 40%;
+    padding: 10px;
+    width: 20%;
+}
+
+.register button:active {
+    opacity: 0.5;
+}
+
+.register input,
+.register label {
+    margin-left: 15px;
+}
+
+/* desktop only */
+@media screen and (min-width: 981px) {
+    .register {
+        margin-left: 37%;
+        margin-top: 8vh;
+        width: 26%;
+    }  
+}
+ 
+/* mobile only */
+@media screen and (max-width: 980px) {
+    .register {
+        margin-left: 15%;
+        margin-top: 4vh;
+        width: 70%;
+    }  
+
+    .register button {
+        margin-left: 35%;
+        width: 30%;
+    }
+}
