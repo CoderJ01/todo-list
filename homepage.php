@@ -48,7 +48,7 @@
                 <div id='myModal' class='modal'>
                     <div class='modal-content'>
                         <span class='close'>&times;</span>
-                        <form action='handle_task.php' method='post'>
+                        <form method='post'>
                             <h3>Input Task</h3>
                             <br/>
                             <div>
@@ -64,4 +64,12 @@
     </html>
     <script type='text/javascript' src='./assets/js/homepage.js'></script>
     ";
+?>
+<?php 
+    if(!empty($_POST['task'])) {
+      
+    }
+    else { 
+    
+    }
 ?>

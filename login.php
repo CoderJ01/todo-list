@@ -16,7 +16,7 @@
                     <a href='./register.php'>Register</a>
                 </nav>
             </header>
-            <form class='register' action='handle_login.php' method='post'>
+            <form class='register' method='post'>
                 <h3>Login</h3>
                 <br/>
                 <div>
@@ -34,4 +34,12 @@
         </body>
     </html>
     ";
+?>
+<?php
+  if(!empty($_POST['email']) && !empty($_POST['password'])) {
+      
+  }
+  else { 
+     
+  } 
 ?>
