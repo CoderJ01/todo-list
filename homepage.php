@@ -53,7 +53,7 @@
                             <br/>
                             <div>
                                 <label htmlFor='task'>Task:</label><br/>
-                                <input type='text' name='task'/>
+                                <input type='text' name='task' value='Enter a task here...'/>
                             </div>
                             <button name='submit'>Submit Task</button>
                         </form>
@@ -66,10 +66,11 @@
     ";
 ?>
 <?php 
-    if(!empty($_POST['task'])) {
-      
+    if(!empty($_POST['task']) && $_POST['task'] !== "Enter a task here...") {
+        $task = $_POST['task'];
+        echo "<p style='color: white;'>Task: $task</p>";
     }
     else { 
-    
+        echo "<p style='color: white;'>No task entered</p>";
     }
 ?>

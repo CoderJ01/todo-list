@@ -21,17 +21,17 @@
                 <br/>
                 <div>
                     <label htmlFor='firstname'>First Name:</label><br/>
-                    <input type='text' name='firstname'/>
+                    <input type='text' name='firstname' value='Enter input'/>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='lastname'>Last Name:</label><br/>
-                    <input type='text' name='lastname'/>
+                    <input type='text' name='lastname' value='Enter input'/>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='email'>Email:</label><br/>
-                    <input type='email' name='email'/>
+                    <input type='email' name='email' value='Enter input'/>
                 </div>
                 <br/>
                 <div>
@@ -51,9 +51,15 @@
     !empty($_POST['email']) &&
     !empty($_POST['password'])) 
     {
-       
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        echo "<p style='color: white;'>Name: $firstname $lastname</p>";
+        echo "<p style='color: white;'>Email: $email</p>";
+        echo "<p style='color: white;'>Password: $password</p>";
     }
     else { 
-        
+        echo "<p style='color: white;'>Enter all inputs</p>";
     }
 ?>

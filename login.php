@@ -21,7 +21,7 @@
                 <br/>
                 <div>
                     <label htmlFor='email'>Email:</label><br/>
-                    <input type='email' name='email'/>
+                    <input type='email' name='email' value='Enter input'/>
                 </div>
                 <br/>
                 <div>
@@ -37,9 +37,12 @@
 ?>
 <?php
   if(!empty($_POST['email']) && !empty($_POST['password'])) {
-      
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    echo "<p style='color: white;'>Email: $email</p>";
+    echo "<p style='color: white;'>Password: $password</p>";
   }
   else { 
-     
+    echo "<p style='color: white;'>Enter all inputs</p>";
   } 
 ?>
