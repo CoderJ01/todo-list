@@ -58,6 +58,8 @@
         echo "<p style='color: white;'>Name: $firstname $lastname</p>";
         echo "<p style='color: white;'>Email: $email</p>";
         echo "<p style='color: white;'>Password: $password</p>";
+
+        // logic for SQL database will go here for Project Deliverable 3
     }
     else { 
         echo "<p style='color: white;'>Enter all inputs</p>";

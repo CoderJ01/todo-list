@@ -1,4 +1,7 @@
 <?php
+    // The three tasks currently listed is merely dummy data. Once this file is connected to 
+    // a SQL database, the tasks will be retrived from SQL and rendered dynamically based 
+    // on the logged in user 
     echo "
     <!DOCTYPE html>
     <html lang='en'>
@@ -69,6 +72,8 @@
     if(!empty($_POST['task']) && $_POST['task'] !== "Enter a task here...") {
         $task = $_POST['task'];
         echo "<p style='color: white;'>Task: $task</p>";
+        
+        // logic for SQL database will go here for Project Deliverable 3
     }
     else { 
         echo "<p style='color: white;'>No task entered</p>";
