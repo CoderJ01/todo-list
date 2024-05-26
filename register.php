@@ -54,9 +54,11 @@
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
+        $username = substr(strtolower($firstname), 0, 1) . strtolower($lastname) . sprintf('%03s', strval(rand(1, 999)));
         $password = $_POST['password'];
         echo "<p style='color: white;'>Name: $firstname $lastname</p>";
         echo "<p style='color: white;'>Email: $email</p>";
+        echo "<p style='color: white;'>Username: $username</p>";
         echo "<p style='color: white;'>Password: $password</p>";
 
         // logic for SQL database will go here for Project Deliverable 3
