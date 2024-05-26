@@ -64,7 +64,7 @@
         $result = $conn->query($sql);
 
         if ($result == TRUE) {
-            echo "<p style='color: white; text-align: center'>You have successfully registered!</p>";
+            echo "<br/><p style='color: white; text-align: center'>You have successfully registered!</p>";
         }
         else{
             echo "Error:". $sql . "<br>". $conn->error;
