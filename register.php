@@ -74,6 +74,6 @@
         $conn->close();
     }
     else { 
-        echo "<p style='color: white;'>Enter all inputs</p>";
+        echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";
     }
 ?>
