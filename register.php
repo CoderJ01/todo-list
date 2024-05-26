@@ -21,17 +21,17 @@
                 <br/>
                 <div>
                     <label htmlFor='firstname'>First Name:</label><br/>
-                    <input type='text' name='firstname' value='Enter input'/>
+                    <input type='text' name='firstname'/>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='lastname'>Last Name:</label><br/>
-                    <input type='text' name='lastname' value='Enter input'/>
+                    <input type='text' name='lastname'/>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='email'>Email:</label><br/>
-                    <input type='email' name='email' value='Enter input'/>
+                    <input type='email' name='email'/>
                 </div>
                 <br/>
                 <div>
