@@ -63,7 +63,18 @@
         echo "<p style='color: white;'>Username: $username</p>";
         echo "<p style='color: white;'>Password: $password</p>";
 
-        // logic for SQL database will go here for Project Deliverable 3
+        $sql = "INSERT INTO `users`(`first_name`, `last_name`, `email`, `username`, `user_password`, `registration_date`) 
+        VALUES ('$firstname','$lastname','$email','$username','$password', NOW())";
+        $result = $conn->query($sql);
+
+        if ($result == TRUE) {
+            echo "New record created successfully.";
+        }
+        else{
+            echo "Error:". $sql . "<br>". $conn->error;
+        }
+      
+        $conn->close();
     }
     else { 
         echo "<p style='color: white;'>Enter all inputs</p>";
