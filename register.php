@@ -46,6 +46,8 @@
     ";
 ?>
 <?php 
+    include 'config.php';
+
     if(!empty($_POST['firstname']) && 
     !empty($_POST['lastname']) && 
     !empty($_POST['email']) &&
