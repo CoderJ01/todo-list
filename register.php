@@ -67,9 +67,11 @@
             echo "<br/><p style='color: white; text-align: center'>You have successfully registered! You may log in now.</p>";
         }
         else{
-            echo "Error:". $sql . "<br>". $conn->error;
+            $db_error = strval($conn->error);
+            // echo "Error:". $sql . "<br>". $db_error;
+            echo "<br/><p style='color: white; text-align: center'>Email is taken!</p>";
         }
-      
+    
         $conn->close();
     }
     else { 
