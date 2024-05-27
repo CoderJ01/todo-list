@@ -21,7 +21,7 @@
                 <br/>
                 <div>
                     <label htmlFor='email'>Email:</label><br/>
-                    <input type='email' name='email' value='Enter input'/>
+                    <input type='email' name='email'/>
                 </div>
                 <br/>
                 <div>
@@ -45,6 +45,6 @@
     // logic for SQL database will go here for Project Deliverable 3
   }
   else { 
-    echo "<p style='color: white;'>Enter all inputs</p>";
+    echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";
   } 
 ?>
