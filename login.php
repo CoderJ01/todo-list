@@ -41,9 +41,7 @@
     if(!empty($_POST['email']) && !empty($_POST['password'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
-        echo "<p style='color: white;'>Email: $email</p>";
-        echo "<p style='color: white;'>Password: $password</p>";
-        // logic for SQL database will go here for Project Deliverable 3
+
         $sql_get_emails = "SELECT email FROM `users`";
         $result = $conn->query($sql_get_emails);
   
