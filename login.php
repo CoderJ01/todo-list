@@ -39,9 +39,11 @@
    include 'config.php';
   
     if(!empty($_POST['email']) && !empty($_POST['password'])) {
+        // user inputs
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+        // get all users' emails from todo.users table
         $sql_get_emails = "SELECT email FROM `users`";
         $result = $conn->query($sql_get_emails);
   
@@ -49,17 +51,20 @@
             $match = false;
             while($row = $result->fetch_assoc()) {
                 if($row["email"] === $email) {
-                    $match = true;
+                    $match = true; // email exists in the database
                 }
             }
             if($match == true) {
                 $correct_password = false;
+
+                // get password associated with email
                 $sql_get_user_password = "SELECT user_password FROM `users` WHERE email='$email'";
                 $result = $conn->query($sql_get_user_password);
+
                 while($row = $result->fetch_assoc()) {
-                    echo $row["user_password"];
+                    // verify that user input the correct password
                     if(password_verify($password, $row["user_password"])) {
-                        $correct_password = true;
+                        $correct_password = true; // password matches w/ email
                     }
                 }
                 if($correct_password === true) {
