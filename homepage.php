@@ -15,10 +15,22 @@
         <body>
             <header>
                 <h1><a href='./homepage.php'>Todo List</a></h1>
-                <nav>
+                <nav>";
+
+                if(!isset($_COOKIE['todo-cookie'])) {
+                    echo"
                     <a href='/register.php'>Register</a>
                     <a href='/login.php'>Sign In</a>
-                </nav>
+                    ";
+                }
+                else {
+                    echo"
+                    <text>Logout</text>
+                    ";
+                }
+                 
+                echo
+                "</nav>
             </header>
             <section class='homepage'>
                 <div class='todo-list'>
