@@ -55,7 +55,21 @@
                 }
             }
             if($match == true) {
-              
+                $correct_password = false;
+                $sql_get_user_password = "SELECT user_password FROM `users` WHERE email='$email'";
+                $result = $conn->query($sql_get_user_password);
+                while($row = $result->fetch_assoc()) {
+                    echo $row["user_password"];
+                    if(password_verify($password, $row["user_password"])) {
+                        $correct_password = true;
+                    }
+                }
+                if($correct_password === true) {
+
+                }
+                else {
+                    echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
+                }
             }
             else {
                 echo "<br/><p style='color: white; text-align: center'>This email has yet to be registered!</p>";
