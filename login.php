@@ -68,7 +68,7 @@
                     }
                 }
                 if($correct_password === true) {
-
+                    echo "<br/><p style='color: white; text-align: center'>You have successfully logged in!</p>";
                 }
                 else {
                     echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
