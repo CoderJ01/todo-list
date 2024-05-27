@@ -36,8 +36,8 @@
     ";
 ?>
 <?php
-   include 'config.php';
-  
+    include 'config.php';
+
     if(!empty($_POST['email']) && !empty($_POST['password'])) {
         // user inputs
         $email = $_POST['email'];
@@ -69,9 +69,17 @@
                 }
                 if($correct_password === true) {
                     echo "<br/><p style='color: white; text-align: center'>You have successfully logged in!</p>";
-                    $cookie_name = 'name';
-                    $cookie_value = 'value';
-                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/');
+
+                    // cookie data
+                    $cookie_name = 'todo-cookie';
+                    $cookie_value =  substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 80); // random string
+                    $hashed_cookie = password_hash($cookie_value, PASSWORD_BCRYPT, [ "cost" => 15 ]);
+
+                    // set cookie
+                    setcookie($cookie_name, $hashed_cookie, time() + (86400 * 30), '/');
+
+                    $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$email'";
+                    $result = $conn->query($sql);
                 }
                 else {
                     echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
