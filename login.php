@@ -69,6 +69,9 @@
                 }
                 if($correct_password === true) {
                     echo "<br/><p style='color: white; text-align: center'>You have successfully logged in!</p>";
+                    $cookie_name = 'name';
+                    $cookie_value = 'value';
+                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/');
                 }
                 else {
                     echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
