@@ -36,15 +36,39 @@
     ";
 ?>
 <?php
-  if(!empty($_POST['email']) && !empty($_POST['password'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    echo "<p style='color: white;'>Email: $email</p>";
-    echo "<p style='color: white;'>Password: $password</p>";
-
-    // logic for SQL database will go here for Project Deliverable 3
-  }
-  else { 
-    echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";
-  } 
+   include 'config.php';
+  
+    if(!empty($_POST['email']) && !empty($_POST['password'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        echo "<p style='color: white;'>Email: $email</p>";
+        echo "<p style='color: white;'>Password: $password</p>";
+        // logic for SQL database will go here for Project Deliverable 3
+        $sql_get_emails = "SELECT email FROM `users`";
+        $result = $conn->query($sql_get_emails);
+  
+        if ($result->num_rows > 0) {
+            $match = false;
+            while($row = $result->fetch_assoc()) {
+                if($row["email"] === $email) {
+                    $match = true;
+                }
+            }
+            if($match == true) {
+              
+            }
+            else {
+                echo "<br/><p style='color: white; text-align: center'>This email has yet to be registered!</p>";
+            }
+        }
+        else{
+            $db_error = strval($conn->error);
+            echo "Error:". $sql . "<br>". $db_error;
+        }
+    
+        $conn->close();
+    }
+    else { 
+        echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";
+    } 
 ?>
