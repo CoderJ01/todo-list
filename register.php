@@ -46,29 +46,35 @@
     ";
 ?>
 <?php 
-    include 'config.php';
+    include 'config.php'; // connect to SQL database
 
     if(!empty($_POST['firstname']) && 
     !empty($_POST['lastname']) && 
     !empty($_POST['email']) &&
     !empty($_POST['password'])) 
     {
+        // user inputs
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $username = substr(strtolower($firstname), 0, 1) . strtolower($lastname) . sprintf('%03s', strval(rand(1, 999)));
         $password = $_POST['password'];
+        
+        // hash password 
         $hash = password_hash($password, PASSWORD_BCRYPT, [ "cost" => 15 ]);
+        
+        // insert input into database
         $sql = "INSERT INTO `users`(`first_name`, `last_name`, `email`, `username`, `user_password`, `registration_date`) 
         VALUES ('$firstname','$lastname','$email','$username', '$hash', NOW())";
         $result = $conn->query($sql);
 
         if ($result == TRUE) {
+            // display success message
             echo "<br/><p style='color: white; text-align: center'>You have successfully registered! You may log in now.</p>";
         }
         else{
             $db_error = strval($conn->error);
-            echo "Error:". $sql . "<br>". $db_error;
+            // echo "Error:". $sql . "<br>". $db_error;
             echo "<br/><p style='color: white; text-align: center'>Email is taken!</p>";
         }
     
