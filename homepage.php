@@ -28,7 +28,6 @@
             <header>
                 <h1><a href='./homepage.php'>Todo List</a></h1>
                 <nav>";
-
                 if(!isset($_COOKIE['todo-cookie'])) {
                     header("Location: http://localhost:3000/register.php");
                 }
@@ -43,7 +42,6 @@
             <section class='homepage'>
                 <div class='todo-list'>
                     <h2>Your Tasks</h2>";
-
                     $sql_get_tasks = "SELECT * FROM `tasks` WHERE user_id = '$user_id'";
                     $result = $conn->query($sql_get_tasks);
                     if ($result->num_rows > 0) {
