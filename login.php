@@ -80,6 +80,8 @@
 
                     $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$email'";
                     $result = $conn->query($sql);
+                    $conn->close();
+                    header("Location: http://localhost:3000/homepage.php");
                 }
                 else {
                     echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
