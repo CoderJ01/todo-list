@@ -41,34 +41,29 @@
                     <text class='logout'>Logout</text>
                     ";
                 }
-                 
                 echo
                 "</nav>
             </header>
             <section class='homepage'>
                 <div class='todo-list'>
-                    <h2>Your Tasks</h2>
-                    <div class='task'>
-                        <div>
-                            <span class='check'>&#10003;</span>
-                            <text>This is a task!</text>
-                        </div>
-                        <span class='remove'>&#9447;</span>
-                    </div>
-                    <div class='task'>
-                        <div>
-                            <span class='check'>&#10003;</span>
-                            <text>This is a task!</text>
-                        </div>
-                        <span class='remove'>&#9447;</span>
-                    </div>
-                    <div class='task'>
-                        <div>
-                            <span class='check'>&#10003;</span>
-                            <text>This is a task!</text>
-                        </div>
-                        <span class='remove'>&#9447;</span>
-                    </div>
+                    <h2>Your Tasks</h2>";
+
+                    $sql_get_tasks = "SELECT * FROM `tasks` WHERE user_id = '$user_id'";
+                    $result = $conn->query($sql_get_tasks);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $task = $row["task"];
+                            echo"
+                            <div class='task'>
+                                <div>
+                                    <span class='check'>&#10003;</span>
+                                    <text>$task</text>
+                                </div>
+                                <span class='remove'>&#9447;</span>
+                            </div>";
+                        }
+                    } 
+                echo"
                 </div>
                 <div class='activate-popup'>
                     <button id='myBtn'>+</button>
