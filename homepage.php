@@ -82,7 +82,7 @@
     <script type='text/javascript' src='./assets/js/homepage.js'></script>
     ";
 
-    if(!empty($_POST['task'])) {
+    if(!empty($_POST['task']) && $_POST['task']) {
         $task = $_POST['task'];
 
         // store task into database
