@@ -90,7 +90,7 @@
     ";
 
     if(!empty($_POST['task'])) {
-        $task = $_POST['task'];
+        $task = strip_tags($_POST['task']);
 
         // store task into database
         $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 

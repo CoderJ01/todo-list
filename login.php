@@ -40,8 +40,8 @@
 
     if(!empty($_POST['email']) && !empty($_POST['password'])) {
         // user inputs
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = strip_tags($_POST['email']); // strip_tags() protect against XSS attacks
+        $password = strip_tags($_POST['password']);
 
         // get all users' emails from todo.users table
         $sql_get_emails = "SELECT email FROM `users`";

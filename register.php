@@ -54,11 +54,11 @@
     !empty($_POST['password'])) 
     {
         // user inputs
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
+        $firstname = strip_tags($_POST['firstname']);
+        $lastname = strip_tags($_POST['lastname']);
+        $email = strip_tags($_POST['email']);
         $username = substr(strtolower($firstname), 0, 1) . strtolower($lastname) . sprintf('%03s', strval(rand(1, 999)));
-        $password = $_POST['password'];
+        $password = strip_tags($_POST['password']);
         
         // hash password 
         $hash = password_hash($password, PASSWORD_BCRYPT, [ "cost" => 15 ]);
