@@ -99,6 +99,6 @@
 
         $conn->close();
 
-        header("Refresh:0");
+        header("Refresh:0"); // refresh the page
     }
 ?>
