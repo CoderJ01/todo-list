@@ -53,6 +53,7 @@
     !empty($_POST['email']) &&
     !empty($_POST['password'])) 
     {
+        // password validation 
         $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
         if(!preg_match($pattern, $_POST['password'])) {
             echo "<br/><p style='color: white; text-align: center'>The password must have a minimum of eight characters. It must also have at least one uppercase letter, one lowercase letter, one number and one special character.</p>";
