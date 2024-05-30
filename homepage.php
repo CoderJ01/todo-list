@@ -80,7 +80,6 @@
 <?php 
     if(!empty($_POST['task']) && $_POST['task']) {
         $task = $_POST['task'];
-        echo "<p style='color: white;'>Task: $task</p>";
         
         // logic for SQL database will go here for Project Deliverable 3
     }
