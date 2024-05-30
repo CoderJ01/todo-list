@@ -96,7 +96,7 @@
     if(!empty($_POST['task']) && $_POST['task']) {
         $task = $_POST['task'];
 
-        // logic for SQL database will go here for Project Deliverable 3
+        // store task into database
         $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
         VALUES ('$task', NOW(),'$user_id')";
         $result = $conn->query($sql);
