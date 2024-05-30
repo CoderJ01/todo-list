@@ -18,6 +18,7 @@
                 <nav>";
 
                 if(!isset($_COOKIE['todo-cookie'])) {
+                    header("Location: http://localhost:3000/register.php");
                     echo"
                     <a href='/register.php'>Register</a>
                     <a href='/login.php'>Sign In</a>
