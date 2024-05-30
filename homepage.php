@@ -1,6 +1,12 @@
 <?php
     include 'config.php'; // connect to database
 
+    // delete a task
+    if(isset($_GET['id'])) {
+        $id = $_GET['id']; // retrieve id from the URL
+        $sql_delete_task = "DELETE FROM `tasks` WHERE task_id=$id";
+    }
+
     // get the user associated with the cookie
     $cookie = $_COOKIE["todo-cookie"];
     $sql_get_username = "SELECT * FROM `users` WHERE user_cookie = '$cookie'";
@@ -53,7 +59,7 @@
                                     <span class='check'>&#10003;</span>
                                     <text>$task</text>
                                 </div>
-                                <span class='remove'><a href='http://localhost:3000/homepage.php/id=" . $row["task_id"] ."'>&#9447;</a></span>
+                                <span class='remove'><a href='http://localhost:3000/homepage.php?id=" . $row["task_id"] ."'>&#9447;</a></span>
                             </div>";
                         }
                     } 
