@@ -53,6 +53,12 @@
     !empty($_POST['email']) &&
     !empty($_POST['password'])) 
     {
+        $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
+        if(!preg_match($pattern, $_POST['password'])) {
+            echo "<br/><p style='color: white; text-align: center'>The password must have a minimum of eight characters. It must also have at least one uppercase letter, one lowercase letter, one number and one special character.</p>";
+            return;
+        }
+
         // user inputs
         $firstname = strip_tags($_POST['firstname']);
         $lastname = strip_tags($_POST['lastname']);
