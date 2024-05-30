@@ -91,11 +91,12 @@
 
     if(!empty($_POST['task'])) {
         $task = strip_tags($_POST['task']);
+        $protected_task = mysqli_real_escape_string($db, $task); // protection from SQL injection attack
 
         // store task into database
         $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
-        VALUES ('$task', NOW(),'$user_id')";
-        $result = $conn->query($sql);
+        VALUES ('$protected_task', NOW(),'$user_id')";
+        $result = mysqli_query($db, $sql);
 
         $conn->close();
 
