@@ -53,7 +53,7 @@
                                     <span class='check'>&#10003;</span>
                                     <text>$task</text>
                                 </div>
-                                <span class='remove'>&#9447;</span>
+                                <span class='remove'><a href='http://localhost:3000/homepage.php/id=" . $row["task_id"] ."'>&#9447;</a></span>
                             </div>";
                         }
                     } 
