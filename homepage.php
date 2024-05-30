@@ -97,5 +97,10 @@
         $task = $_POST['task'];
 
         // logic for SQL database will go here for Project Deliverable 3
+        $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
+        VALUES ('$task', NOW(),'$user_id')";
+        $result = $conn->query($sql);
+
+        $conn->close();
     }
 ?>
