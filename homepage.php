@@ -25,7 +25,7 @@
                 }
                 else {
                     echo"
-                    <text>Logout</text>
+                    <text class='logout'>Logout</text>
                     ";
                 }
                  
