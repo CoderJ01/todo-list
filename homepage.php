@@ -4,7 +4,7 @@
     // delete a task
     if(isset($_GET['id'])) {
         $id = $_GET['id']; // retrieve id from the URL
-        $sql_delete_task = "DELETE FROM `tasks` WHERE task_id=$id";
+        $sql_delete_task = "DELETE FROM `tasks` WHERE task_id = $id";
         $conn->query($sql_delete_task);    
     }
 
