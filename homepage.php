@@ -1,8 +1,4 @@
 <?php
-    // The three tasks currently listed is merely dummy data. Once this file is connected to 
-    // a SQL database, the tasks will be retrived from SQL and rendered dynamically based 
-    // on the logged in user
-
     include 'config.php'; // connect to database
 
     // get the user associated with the cookie
