@@ -43,9 +43,13 @@
         $email = strip_tags($_POST['email']); // strip_tags() protect against XSS attacks
         $password = strip_tags($_POST['password']);
 
+        // protect from SQL injection attack
+        $protected_email = mysqli_real_escape_string($db, $email);
+        $protected_password = mysqli_real_escape_string($db, $password);
+
         // get all users' emails from todo.users table
         $sql_get_emails = "SELECT email FROM `users`";
-        $result = $conn->query($sql_get_emails);
+        $result = mysqli_query($db, $sql_get_emails);
   
         if ($result->num_rows > 0) {
             $match = false;
