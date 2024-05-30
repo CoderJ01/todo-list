@@ -28,6 +28,11 @@ nav a {
     text-decoration: none;
 }
 
+.logout:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 /* desktop only */
 @media screen and (min-width: 981px) {
     header {
