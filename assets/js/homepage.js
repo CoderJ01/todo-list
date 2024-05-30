@@ -25,5 +25,5 @@ function getCookie(name) {
 
 logout.onclick = function() {
     document.cookie = "todo-cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.reload(false);
+    window.location.replace("http://localhost:3000/login.php");
 }
