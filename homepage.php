@@ -1,7 +1,23 @@
 <?php
     // The three tasks currently listed is merely dummy data. Once this file is connected to 
     // a SQL database, the tasks will be retrived from SQL and rendered dynamically based 
-    // on the logged in user 
+    // on the logged in user
+
+    include 'config.php'; // connect to database
+
+    // get the user associated with the cookie
+    $cookie = $_COOKIE["todo-cookie"];
+    $sql_get_username = "SELECT * FROM `users` WHERE user_cookie = '$cookie'";
+    $result = $conn->query($sql_get_username);
+
+    $user_id = '';
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+           $user_id = $row["user_id"]; // find the user's id
+        }
+    } 
+
     echo "
     <!DOCTYPE html>
     <html lang='en'>
@@ -76,11 +92,10 @@
     </html>
     <script type='text/javascript' src='./assets/js/homepage.js'></script>
     ";
-?>
-<?php 
+
     if(!empty($_POST['task']) && $_POST['task']) {
         $task = $_POST['task'];
-        
+
         // logic for SQL database will go here for Project Deliverable 3
     }
 ?>
