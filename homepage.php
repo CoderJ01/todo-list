@@ -98,5 +98,7 @@
         $result = $conn->query($sql);
 
         $conn->close();
+
+        header("Refresh:0");
     }
 ?>
