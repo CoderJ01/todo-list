@@ -17,12 +17,6 @@ window.onclick = function(event) {
     }
 }
 
-function getCookie(name) {
-    function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
-    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
-    return match ? match[1] : null;
-}
-
 logout.onclick = function() {
     document.cookie = "todo-cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.replace("http://localhost:3000/login.php");
