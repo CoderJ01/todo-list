@@ -63,7 +63,7 @@
 
                 // get password associated with email
                 $sql_get_user_password = "SELECT user_password FROM `users` WHERE email='$email'";
-                $result = $conn->query($sql_get_user_password);
+                $result = mysqli_query($db, $sql_get_user_password);
 
                 while($row = $result->fetch_assoc()) {
                     // verify that user input the correct password
@@ -83,8 +83,8 @@
                     setcookie($cookie_name, $hashed_cookie, time() + (86400 * 30), '/');
 
                     $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$email'";
-                    $result = $conn->query($sql);
-                    $conn->close();
+                    $result = mysqli_query($db, $sql);
+                    // $conn->close();
                     header("Location: http://localhost:3000/homepage.php");
                 }
                 else {
@@ -96,11 +96,9 @@
             }
         }
         else{
-            $db_error = strval($conn->error);
-            echo "Error:". $sql . "<br>". $db_error;
+            // $db_error = strval($conn->error);
+            // echo "Error:". $sql . "<br>". $db_error;
         }
-    
-        $conn->close();
     }
     else { 
         echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";

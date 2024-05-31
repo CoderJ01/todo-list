@@ -5,13 +5,13 @@
     if(isset($_GET['id'])) {
         $id = $_GET['id']; // retrieve id from the URL
         $sql_delete_task = "DELETE FROM `tasks` WHERE task_id = $id";
-        $conn->query($sql_delete_task);    
+        mysqli_query($db, $sql_delete_task);    
     }
 
     // get the user associated with the cookie
     $cookie = $_COOKIE["todo-cookie"];
     $sql_get_username = "SELECT * FROM `users` WHERE user_cookie = '$cookie'";
-    $result = $conn->query($sql_get_username);
+    $result = mysqli_query($db, $sql_get_username);
 
     $user_id = '';
 
@@ -50,7 +50,7 @@
                 <div class='todo-list'>
                     <h2>Your Tasks</h2>";
                     $sql_get_tasks = "SELECT * FROM `tasks` WHERE user_id = '$user_id'";
-                    $result = $conn->query($sql_get_tasks);
+                    $result = mysqli_query($db, $sql_get_tasks);
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             $task = $row["task"];
@@ -97,8 +97,6 @@
         $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
         VALUES ('$protected_task', NOW(),'$user_id')";
         $result = mysqli_query($db, $sql);
-
-        $conn->close();
 
         header("Refresh:0"); // refresh the page
     }
