@@ -62,12 +62,12 @@
                 $correct_password = false;
 
                 // get password associated with email
-                $sql_get_user_password = "SELECT user_password FROM `users` WHERE email='$email'";
+                $sql_get_user_password = "SELECT user_password FROM `users` WHERE email='$protected_email'";
                 $result = mysqli_query($db, $sql_get_user_password);
 
                 while($row = $result->fetch_assoc()) {
                     // verify that user input the correct password
-                    if(password_verify($password, $row["user_password"])) {
+                    if(password_verify($protected_password, $row["user_password"])) {
                         $correct_password = true; // password matches w/ email
                     }
                 }
@@ -82,7 +82,7 @@
                     // set cookie
                     setcookie($cookie_name, $hashed_cookie, time() + (86400 * 30), '/');
 
-                    $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$email'";
+                    $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$protected_email'";
                     $result = mysqli_query($db, $sql);
                     // $conn->close();
                     header("Location: http://localhost:3000/homepage.php");
