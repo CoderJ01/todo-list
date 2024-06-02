@@ -67,19 +67,20 @@
         $username = substr(strtolower($firstname), 0, 1) . strtolower($lastname) . sprintf('%03s', strval(rand(1, 999)));
         $password = strip_tags($_POST['password']);
 
-        // protect from SQL injection attack
-        $protected_firstname = mysqli_real_escape_string($db, $firstname);
-        $protected_lastname = mysqli_real_escape_string($db, $lastname);
-        $protected_email = mysqli_real_escape_string($db, $email);
-        $protected_password = mysqli_real_escape_string($db, $password);
+        // // protect from SQL injection attack
+        // $protected_firstname = mysqli_real_escape_string($db, $firstname);
+        // $protected_lastname = mysqli_real_escape_string($db, $lastname);
+        // $protected_email = mysqli_real_escape_string($db, $email);
+        // $protected_password = mysqli_real_escape_string($db, $password);
         
         // hash password 
         $hash = password_hash($protected_password, PASSWORD_BCRYPT, [ "cost" => 15 ]);
         
         // insert input into database
-        $sql = "INSERT INTO `users`(`first_name`, `last_name`, `email`, `username`, `user_password`, `registration_date`) 
-        VALUES ('$protected_firstname','$protected_lastname','$protected_email','$username', '$hash', NOW())";
-        $result = mysqli_query($db, $sql);
+        // prepare statement to protect against SQL injection attacks
+        $stmt = $db->prepare("INSERT INTO `users`(`first_name`, `last_name`, `email`, `username`, `user_password`, `registration_date`) 
+        VALUES ('$protected_firstname','$protected_lastname','$protected_email','$username', '$hash', NOW())");
+        $stmt->execute();
 
         if ($result == TRUE) {
             // display success message
