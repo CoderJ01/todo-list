@@ -66,12 +66,6 @@
         $email = strip_tags($_POST['email']);
         $username = substr(strtolower($firstname), 0, 1) . strtolower($lastname) . sprintf('%03s', strval(rand(1, 999)));
         $password = strip_tags($_POST['password']);
-
-        // // protect from SQL injection attack
-        // $protected_firstname = mysqli_real_escape_string($db, $firstname);
-        // $protected_lastname = mysqli_real_escape_string($db, $lastname);
-        // $protected_email = mysqli_real_escape_string($db, $email);
-        // $protected_password = mysqli_real_escape_string($db, $password);
         
         // hash password 
         $hash = password_hash($protected_password, PASSWORD_BCRYPT, [ "cost" => 15 ]);

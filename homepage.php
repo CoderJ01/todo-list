@@ -93,7 +93,6 @@
 
     if(!empty($_POST['task'])) {
         $task = strip_tags($_POST['task']);
-        // $protected_task = mysqli_real_escape_string($db, $task); // protection from SQL injection attack
 
         // store task into database
         $stmt = $db->prepare("INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
