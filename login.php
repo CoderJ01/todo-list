@@ -43,10 +43,6 @@
         $email = strip_tags($_POST['email']); // strip_tags() protect against XSS attacks
         $password = strip_tags($_POST['password']);
 
-        // // protect from SQL injection attack
-        // $protected_email = mysqli_real_escape_string($db, $email);
-        // $protected_password = mysqli_real_escape_string($db, $password);
-
         // get all users' emails from todo.users table
         $stmt = $db->prepare("SELECT email FROM `users`"); // prepare statement protects against SQL injection attack
         $stmt->execute();
@@ -54,7 +50,7 @@
 
         if(count($emails) > 0) {
             $match = false;
-
+            
             foreach($emails as $email) {
                 if($email["email"] === $email) {
                     $match = true; // email exists in the database
