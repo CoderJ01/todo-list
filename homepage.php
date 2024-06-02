@@ -4,20 +4,21 @@
     // delete a task
     if(isset($_GET['id'])) {
         $id = $_GET['id']; // retrieve id from the URL
-        $sql_delete_task = "DELETE FROM `tasks` WHERE task_id = $id";
-        mysqli_query($db, $sql_delete_task);    
+        $stmt = $db->prepare("DELETE FROM `tasks` WHERE task_id = $id");
+        $stmt->execute();
     }
 
     // get the user associated with the cookie
     $cookie = $_COOKIE["todo-cookie"];
-    $sql_get_username = "SELECT * FROM `users` WHERE user_cookie = '$cookie'";
-    $result = mysqli_query($db, $sql_get_username);
+    $stmt =  $db->prepare("SELECT * FROM `users` WHERE user_cookie = '$cookie'");
+    $stmt->execute();
+    $users = $stmt->fetchAll();
 
     $user_id = '';
 
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-           $user_id = $row["user_id"]; // find the user's id
+    if (count($users) > 0) {
+        foreach($users as $user) {
+           $user_id = $user["user_id"]; // find the user's id
         }
     } 
 
@@ -49,18 +50,19 @@
             <section class='homepage'>
                 <div class='todo-list'>
                     <h2>Your Tasks</h2>";
-                    $sql_get_tasks = "SELECT * FROM `tasks` WHERE user_id = '$user_id'";
-                    $result = mysqli_query($db, $sql_get_tasks);
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $task = $row["task"];
+                    $stmt = $db->prepare("SELECT * FROM `tasks` WHERE user_id = '$user_id'");
+                    $stmt->execute();
+                    $task = $stmt->fetchAll();
+                    if (count($tasks) > 0) {
+                        foreach($tasks as $task) {
+                            $task = $task["task"];
                             echo"
                             <div class='task'>
                                 <div>
                                     <span class='check'>&#10003;</span>
                                     <text>$task</text>
                                 </div>
-                                <span class='remove'><a href='http://localhost:3000/homepage.php?id=" . $row["task_id"] ."'>&#9447;</a></span>
+                                <span class='remove'><a href='http://localhost:3000/homepage.php?id=" . $task["task_id"] ."'>&#9447;</a></span>
                             </div>";
                         }
                     } 
@@ -91,12 +93,12 @@
 
     if(!empty($_POST['task'])) {
         $task = strip_tags($_POST['task']);
-        $protected_task = mysqli_real_escape_string($db, $task); // protection from SQL injection attack
+        // $protected_task = mysqli_real_escape_string($db, $task); // protection from SQL injection attack
 
         // store task into database
-        $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
-        VALUES ('$protected_task', NOW(),'$user_id')";
-        $result = mysqli_query($db, $sql);
+        $stmt = $db->prepare("INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
+        VALUES ('$protected_task', NOW(),'$user_id')");
+        $stmt->execute();
 
         header("Refresh:0"); // refresh the page
     }
