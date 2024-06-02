@@ -1,4 +1,4 @@
-FROM php
+FROM php:8.2-cli
 COPY ./register.php ./
 COPY ./login.php ./
 COPY ./homepage.php ./
