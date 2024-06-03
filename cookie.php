@@ -8,9 +8,23 @@
         <br/>
         <body style='background-color: rgb(32, 43, 62);'>
             <p $style>$message</p>
-            <p $style>You will be redirected to the login page in $seconds seconds.</p>
+            <p $style>You will be redirected to the login page in <span id='counter'>$seconds<span></p>
         </body>";
         echo "<script>window.setTimeout(function(){ window.location.href = '" . $domain ."/login.php'; }, ($seconds * 1000));</script>";
+        echo "
+        <script type='text/javascript'>
+            function countdown() {
+                var i = document.getElementById('counter');
+                if (parseInt(i.innerHTML) <= 0) {
+                    location.href = 'login.php';
+                }
+                if (parseInt(i.innerHTML)!=0) {
+                    i.innerHTML = parseInt(i.innerHTML) - 1;
+                }
+            }
+            setInterval(function(){ countdown(); }, 1000);
+        </script>
+        ";
     }
 
     if(!empty($_POST['email']) && !empty($_POST['password'])) {
