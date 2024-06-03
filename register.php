@@ -90,8 +90,6 @@
             // echo "Error:". $sql . "<br>". $db_error;
             echo "<br/><p style='color: white; text-align: center'>Email is taken!</p>";
         }
-    
-        // $conn->close();
     }
     else { 
         echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";

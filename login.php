@@ -84,7 +84,6 @@
 
                     $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$protected_email'";
                     $result = mysqli_query($db, $sql);
-                    // $conn->close();
                     echo "<script>window.location='http://localhost:3000/homepage.php'</script>";
                 }
                 else {
