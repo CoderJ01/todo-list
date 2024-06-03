@@ -1,6 +1,10 @@
 <?php
     include 'config.php'; // connect to database
 
+    if(!isset($_COOKIE['todo-cookie'])) {
+        echo "<script>window.location='" . $domain . "/register.php'</script>";
+    }
+
     // delete a task
     if(isset($_GET['id'])) {
         $id = $_GET['id']; // retrieve id from the URL
@@ -34,17 +38,9 @@
         <body>
             <header>
                 <h1><a href='./homepage.php'>Todo List</a></h1>
-                <nav>";
-                if(!isset($_COOKIE['todo-cookie'])) {
-                    echo "<script>window.location='" . $domain . "/register.php'</script>";
-                }
-                else {
-                    echo"
+                <nav>
                     <text class='logout'>Logout</text>
-                    ";
-                }
-                echo
-                "</nav>
+                </nav>
             </header>
             <section class='homepage'>
                 <div class='todo-list'>
