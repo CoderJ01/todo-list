@@ -98,6 +98,6 @@
         VALUES ('$protected_task', NOW(),'$user_id')";
         $result = mysqli_query($db, $sql);
 
-        header("Refresh:0"); // refresh the page
+        echo "<script>location.reload()</script>";
     }
 ?>
