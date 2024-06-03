@@ -89,13 +89,19 @@
         $task = strip_tags($_POST['task']);
         $protected_task = mysqli_real_escape_string($db, $task); // protection from SQL injection attack
 
-        // store task into database
-        $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
-        VALUES ('$protected_task', NOW(),'$user_id')";
-        $result = mysqli_query($db, $sql);
+        // check for duplicate entries
+        $sql_check_for_duplicate = "SELECT * FROM tasks WHERE task = '$protected_task' AND user_id = $user_id";
+        $duplicate = mysqli_query($db, $sql_check_for_duplicate);
 
-        if($result == TRUE) {
-            echo "<script>location.reload()</script>";
-        }
+        if ($duplicate->num_rows <= 0) {
+            // store task into database
+            $sql = "INSERT INTO `tasks`(`task`, `task_created_at`, `user_id`) 
+            VALUES ('$protected_task', NOW(),'$user_id')";
+            $result = mysqli_query($db, $sql);
+
+            if($result == TRUE) {
+                echo "<script>location.reload()</script>";
+            }
+        } 
     }
 ?>
