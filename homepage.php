@@ -36,7 +36,7 @@
                 <h1><a href='./homepage.php'>Todo List</a></h1>
                 <nav>";
                 if(!isset($_COOKIE['todo-cookie'])) {
-                    header("Location: http://localhost:3000/register.php");
+                    echo "<script>window.location='http://localhost:3000/register.php'</script>";
                 }
                 else {
                     echo"
