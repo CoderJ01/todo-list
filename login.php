@@ -18,7 +18,7 @@
                     <a href='./register.php'>Register</a>
                 </nav>
             </header>
-            <form class='register' method='post'>
+            <form class='register' method='post' action='cookie.php'>
                 <h3>Login</h3>
                 <br/>
                 <div>
@@ -73,17 +73,17 @@
                 if($correct_password === true) {
                     echo "<br/><p style='color: white; text-align: center'>You have successfully logged in!</p>";
 
-                    // cookie data
-                    $cookie_name = 'todo-cookie';
-                    $cookie_value =  substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 80); // random string
-                    $hashed_cookie = password_hash($cookie_value, PASSWORD_BCRYPT, [ "cost" => 15 ]);
+                    // // cookie data
+                    // $cookie_name = 'todo-cookie';
+                    // $cookie_value =  substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 80); // random string
+                    // $hashed_cookie = password_hash($cookie_value, PASSWORD_BCRYPT, [ "cost" => 15 ]);
 
-                    // set cookie
-                    setcookie($cookie_name, $hashed_cookie, time() + (86400 * 30), '/');
+                    // // set cookie
+                    // setcookie($cookie_name, $hashed_cookie, time() + (86400 * 30), '/');
 
-                    $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$protected_email'";
-                    $result = mysqli_query($db, $sql);
-                    echo "<script>window.location='" . $domain . "/homepage.php'</script>";
+                    // $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$protected_email'";
+                    // $result = mysqli_query($db, $sql);
+                    echo "<script>window.location='" . $domain . "/cookie.php'</script>";
                 }
                 else {
                     echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
