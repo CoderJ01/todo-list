@@ -94,6 +94,8 @@
         VALUES ('$protected_task', NOW(),'$user_id')";
         $result = mysqli_query($db, $sql);
 
-        echo "<script>location.reload()</script>";
+        if($result == TRUE) {
+            echo "<script>location.reload()</script>";
+        }
     }
 ?>
