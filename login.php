@@ -83,7 +83,7 @@
 
                     $sql = "UPDATE `users` SET user_cookie = '$hashed_cookie' WHERE email='$protected_email'";
                     $result = mysqli_query($db, $sql);
-                    echo "<script>window.location='http://localhost:3000/homepage.php'</script>";
+                    echo "<script>window.location='" . $domain . "/homepage.php'</script>";
                 }
                 else {
                     echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";

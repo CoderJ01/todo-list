@@ -36,7 +36,7 @@
                 <h1><a href='./homepage.php'>Todo List</a></h1>
                 <nav>";
                 if(!isset($_COOKIE['todo-cookie'])) {
-                    echo "<script>window.location='http://localhost:3000/register.php'</script>";
+                    echo "<script>window.location='" . $domain . "/register.php'</script>";
                 }
                 else {
                     echo"
@@ -60,7 +60,7 @@
                                     <span class='check'>&#10003;</span>
                                     <text>$task</text>
                                 </div>
-                                <span class='remove'><a href='http://localhost:3000/homepage.php?id=" . $row["task_id"] ."'>&#9447;</a></span>
+                                <span class='remove'><a href='" . $domain . "/homepage.php?id=" . $row["task_id"] ."'>&#9447;</a></span>
                             </div>";
                         }
                     } 
