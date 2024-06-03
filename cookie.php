@@ -1,5 +1,19 @@
-<?php 
-     if(!empty($_POST['email']) && !empty($_POST['password'])) {
+<?php
+    include 'config.php';
+
+    // redirect user to login page after invalid input
+    function redirect($message, $seconds, $domain) {
+        $style = "style='color: white; text-align: center; font-size: 25px'";
+        echo "
+        <br/>
+        <body style='background-color: rgb(32, 43, 62);'>
+            <p $style>$message</p>
+            <p $style>You will be redirected to the login page in $seconds seconds.</p>
+        </body>";
+        echo "<script>window.setTimeout(function(){ window.location.href = '" . $domain ."/login.php'; }, ($seconds * 1000));</script>";
+    }
+
+    if(!empty($_POST['email']) && !empty($_POST['password'])) {
         // user inputs
         $email = strip_tags($_POST['email']); // strip_tags() protect against XSS attacks
         $password = strip_tags($_POST['password']);
@@ -33,7 +47,7 @@
                     }
                 }
                 if($correct_password === true) {
-                    echo "<br/><p style='color: white; text-align: center'>You have successfully logged in!</p>";
+                    echo "<br/><p style='text-align: center'>You have successfully logged in!</p>";
 
                     // cookie data
                     $cookie_name = 'todo-cookie';
@@ -48,11 +62,11 @@
                     echo "<script>window.location='" . $domain . "/homepage.php'</script>";
                 }
                 else {
-                    echo "<br/><p style='color: white; text-align: center'>The password does not match the email!</p>";
+                    redirect("The password does noy match the email!", 3, $domain);
                 }
             }
             else {
-                echo "<br/><p style='color: white; text-align: center'>This email has yet to be registered!</p>";
+                redirect("This email has yet to be registered!", 3, $domain);
             }
         }
         else{
@@ -61,6 +75,6 @@
         }
     }
     else { 
-        echo "<br/><p style='color: white; text-align: center'>Fill in every field.</p>";
+        redirect("Fill in every field!", 3, $domain);
     } 
 ?>
