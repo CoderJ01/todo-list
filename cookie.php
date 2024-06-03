@@ -62,7 +62,7 @@
                     echo "<script>window.location='" . $domain . "/homepage.php'</script>";
                 }
                 else {
-                    redirect("The password does noy match the email!", 3, $domain);
+                    redirect("The password does not match the email!", 3, $domain);
                 }
             }
             else {
