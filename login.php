@@ -1,4 +1,6 @@
 <?php
+    include 'config.php';
+    
     echo "
     <!DOCTYPE html>
     <html lang='en'>
@@ -34,9 +36,6 @@
         </body>
     </html>
     ";
-?>
-<?php
-    include 'config.php';
 
     if(!empty($_POST['email']) && !empty($_POST['password'])) {
         // user inputs

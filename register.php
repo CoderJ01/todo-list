@@ -1,4 +1,6 @@
 <?php
+    include 'config.php'; // connect to SQL database
+
     echo "
     <!DOCTYPE html>
     <html lang='en'>
@@ -44,10 +46,7 @@
         </body>
     </html>
     ";
-?>
-<?php 
-    include 'config.php'; // connect to SQL database
-
+    
     if(!empty($_POST['firstname']) && 
     !empty($_POST['lastname']) && 
     !empty($_POST['email']) &&
