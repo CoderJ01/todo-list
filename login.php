@@ -1,6 +1,4 @@
 <?php
-    include 'config.php';
-    
     echo "
     <!DOCTYPE html>
     <html lang='en'>
