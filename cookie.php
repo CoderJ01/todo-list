@@ -61,8 +61,6 @@
                     }
                 }
                 if($correct_password === true) {
-                    echo "<br/><p style='text-align: center'>You have successfully logged in!</p>";
-
                     // cookie data
                     $cookie_name = 'todo-cookie';
                     $cookie_value =  substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 80); // random string
