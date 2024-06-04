@@ -10,7 +10,7 @@ This website is designed to help users create a simple todo list.
 * SQL
 
 ## Screenshot of Website
-![Alt text](./assets/images/todo-list.jpg.JPG?raw=true 'Todo List')
+![Alt text](./assets/images/todo-list.jpg?raw=true 'Todo List')
 
 ## Website Link
 https://todo-list-php.atwebpages.com/login.php
